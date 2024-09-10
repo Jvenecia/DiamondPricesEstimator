@@ -8,16 +8,16 @@
 #
 # Jake Roman & Jose Venecia
 # 
-
+from keras._tf_keras.keras.models import Sequential
+from keras._tf_keras.keras.layers import Input, Dense
+from keras._tf_keras.keras.optimizers import Adam, SGD
+from keras._tf_keras.keras.callbacks import EarlyStopping
+import keras._tf_keras.keras.utils
 import matplotlib.pyplot as plt
 import numpy as np
 import os
 import pdb
-from keras.models import Sequential
-from keras.layers import Input, Dense
-from keras.optimizers import Adam, SGD
-from keras.callbacks import EarlyStopping
-import keras.utils
+
 import argparse
 from sklearn.model_selection import train_test_split
 
@@ -65,7 +65,7 @@ def main():
     model.summary()
     input("Press <Enter> to train this network...")
 
-    # Select loss, optimizer, and metrics equations to be used
+    # Select loss, optimizer, and metrics equations
     model.compile(
         loss='mean_absolute_percentage_error',           # measure of error
         optimizer=Adam(learning_rate=args.learningrate), # amount of change each batch
